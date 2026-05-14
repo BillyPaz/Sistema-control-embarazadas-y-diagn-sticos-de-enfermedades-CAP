@@ -1,0 +1,247 @@
+
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+body
+{
+	font-family: 'Poppins', sans-serif;
+    background-color: #ffffff;
+}
+
+img
+{
+    max-width: 100%;
+}
+
+.header{
+    background-image: url(../imagenes/bg.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    position: relative;
+    min-height: 55vh;
+    align-items: center;
+}
+main {
+    padding-bottom: 50x; 
+}
+
+.header-txt h1{
+    font-size: 70px;
+    line-height: 80px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #02457a;
+    margin-bottom: 25px;
+    margin-left: 180px;
+    font-family: "Roboto", sans-serif;
+}
+
+.header-txt p{
+    font-size: 18px;
+    color: #ffffff;
+    font-weight: 500;
+    margin-bottom: 25px;
+}
+
+.table {
+    width: 90%;
+    margin: 30px auto;
+    background-color: #fff;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    overflow: hidden;
+	border-radius: 20px;
+    margin-bottom: 80px;
+}
+
+.table__header {
+    background-color: #02457a;
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;    
+}
+
+.table__header h2 {
+    font-size: 30px;
+    margin: 0;
+	font-family: "Roboto", sans-serif;
+}
+
+.table__header .btn {
+    background-color: #97CADB;
+    border: none;
+    font-weight: bold;
+	border-radius: 15px;
+    color: #001B48;
+    font-family: "Roboto", sans-serif;
+}
+
+.table__header .btn:hover {
+    background-color: #018ABE;
+}
+
+.table__body {
+    padding: 20px;
+    overflow-x: auto;
+    font-family: 'Poppins', sans-serif;
+    
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+	
+}
+
+table th, table td {
+    padding: 15px;
+    text-align: left;
+   
+}
+
+table th {
+    background-color:#02457a;
+    color: #fff;
+    font-weight: bold;
+	
+}
+
+
+table tr:hover {
+    background-color: #f1f1f1;
+}
+
+.modal-header {
+    background-color:#02457a;
+    color: #fff;
+}
+
+.modal-footer .btn-primary {
+    background-color: #02457a;
+    border: none;
+}
+
+.modal-footer .btn-secondary {
+    background-color: #6c7d6f;
+    border: none;
+}
+
+.alert {
+    margin-top: 20px;
+    text-align: center;
+    font-weight: bold;
+}
+
+
+.filtros {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    margin: 20px 10px;
+}
+
+#buscador {
+    width: 250px;   
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+#modulos {
+    width: 180px;
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    background-color: #fff;
+}
+
+
+@media(max-width:991px)
+{ 
+    .menu
+    {
+        padding: 20px;
+        position: relative;
+    }
+
+    .menu label 
+    {
+        display: initial;
+    }
+    .menu .navbar
+    {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: #008346;
+        display: none;
+    }
+
+    .menu ,.navbar ul
+    {
+        flex-direction: column;
+    }
+    .menu .navbar ul li 
+    {
+        width: 100%;
+        padding: 20px 0;
+    }
+    .menu .navbar ul li a:hover
+    {
+        color: #FFFF;
+    }
+    #menu:checked ~ .navbar 
+    {
+        display: initial;
+    }
+
+    .footer
+    {
+        padding: 30px;
+    }
+    .footer-content
+    {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+table.dataTable thead .sorting:after,
+table.dataTable thead .sorting:before,
+table.dataTable thead .sorting_asc:after,
+table.dataTable thead .sorting_asc:before,
+table.dataTable thead .sorting_desc:after,
+table.dataTable thead .sorting_desc:before {
+    display: none !important;
+}
+
+th .sorting-icon {
+    display: none;
+}
+
+
+@media screen and (max-width:800px){
+    .pie-pagina .grupo-1{
+        width: 90%;
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap:30px;
+        padding: 35px 0px;
+    }
+}
+

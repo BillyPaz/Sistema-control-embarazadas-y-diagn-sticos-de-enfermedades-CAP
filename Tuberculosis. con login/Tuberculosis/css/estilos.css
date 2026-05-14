@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@400;500;600;700;800&display=swap');
+
+/*
+font-family: 'Bebas Neue', sans-serif;
+font-family: 'Poppins', sans-serif;
+*/
+
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+body
+{
+    font-family: 'Poppins', sans-serif;
+    background-color: #E9F4F7;
+}
+
+img
+{
+    max-width: 100%;
+}
+
+.container
+{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.header-content
+{
+    display: flex;
+    padding: 40px 0 0 0;
+}
+.header-txt
+{
+    flex-basis: 50%;
+    padding-right: 30px;
+}
+.header-img img {
+    width: 500px;   
+    height: auto;   
+}
+
+.header-txt  span
+{
+    font-size: 18px;
+    text-transform: capitalize;
+    color: #3e7fb4;
+    font-weight: 600;
+    margin-bottom: 15px;
+    display: block;
+}
+.header-txt h1
+{
+    font-size: 70px;
+    line-height: 1;
+    color: #0b083a ;
+    font-family: 'Bebas Neue', sans-serif;
+    margin-bottom: 15px;
+}
+p
+{
+ font-size: 18px;
+ color: #4B5970;
+ margin-bottom: 50px;
+ text-align: justify;
+}
+
+.btn-1
+{
+    display: inline-block;
+    padding: 14px 25px;
+    background-color: #002453 ;
+    color: #FFFF;
+    text-transform: uppercase;
+    font-size: 15px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgb(33, 40, 105, 0.2);
+}
+.header-img
+{
+    flex-basis: 50%;
+}
+
+.services-1 {
+    flex-basis: calc(20% - 30px);
+    background-color: #fbfcfe;
+    padding: 40px;
+    box-shadow: 0 0 10px rgba(33, 105, 58, 0.2);
+    border-radius: 25px;
+    color: #0f203f;
+    display: flex;             
+    flex-direction: column;     
+    align-items: center;       
+    justify-content: center;    
+    text-align: center;         
+}
+
+.services-1 a {
+    font-size: 18px; 
+    font-weight: bold;
+    text-decoration: none;
+    color: inherit;
+}
+
+.services-content
+{
+    margin: 40px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.services-1:hover {
+    background-color: #4B5970;
+    color: #FFF;
+    cursor: pointer;
+}
+
+.services-1:hover i {
+    color: #ffffff;
+}
+.services-1 img
+{
+    width: 35px;
+    height: 35px;
+    margin-bottom:10px ;
+}
+.services-1 h3
+{
+    font-size: 20px;
+    line-height: 1.2;
+}
+

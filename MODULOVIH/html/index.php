@@ -1,0 +1,232 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registros de Tuberculosis</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/pacientes.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    
+<?php include("../MENU/menuVIH.php") ?>
+
+<main>
+    <div id="contenido" ></div>
+    <header class="header" ><div class="header-content container">
+        <div class="header-txt">
+            <h1>PACIENTES</h1>
+        </div>
+    </div>
+    </header>
+    
+   <section  class="table" id="customers_table" >
+        <a class="btn btn-primary" href="nuevoDiagnosticoVIH.php">Registrar VIH</a>
+       <table >
+    <thead>
+        <tr>
+            <th>Paciente</th>   
+            <th>Tipo Paciente</th>                 
+            <th>Fecha Referencia</th>
+            <th>Rechazo</th>
+            <th>Fecha Realización</th>
+            <th>Resultado</th>
+            <th>Fecha Registro</th>
+            <th>Acciones</th> 
+        </tr>
+    </thead>
+    <tbody id="tablaPacientes" >
+        <!-- Aquí se insertarán las filas -->
+    </tbody>
+</table>
+
+
+     <!--   <a href="index.php" class="btn">Volver al Inicio</a> -->
+    </main>
+
+<div class="modal fade" id="modalVisualizarPrenatal" tabindex="-1" aria-labelledby="modalVisualizarPrenatalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header bg-primary text-white">
+                <h5 class="modal-title">
+                    <i class="bi bi-clipboard2-pulse me-2"></i>Información del Traslado Prenatal
+                </h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- Nueva sección para datos del paciente -->
+                <div class="card border-0 bg-light mb-4">
+                    <div class="card-header bg-success text-white py-2">
+                        <h6 class="mb-0"><i class="bi bi-person-vcard me-2"></i>Datos del Paciente</h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-8 mb-3">
+                                <label class="form-label fw-semibold text-primary">Nombre Completo</label>
+                                <div class="p-2 bg-white rounded border">
+                                    <span id="visualNombrePaciente" class="text-dark fw-bold"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label class="form-label fw-semibold text-primary">DPI/CUI</label>
+                                <div class="p-2 bg-white rounded border">
+                                    <span id="visualDpiPaciente" class="text-dark fw-bold">-</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <!-- Columna Izquierda - Datos Generales -->
+                    <div class="col-md-6">
+                        <div class="card border-0 bg-light mb-4">
+                            <div class="card-header bg-primary text-white py-2">
+                                <h6 class="mb-0"><i class="bi bi-info-circle me-2"></i>Datos Generales</h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="mb-3">
+                                    <label class="form-label fw-semibold text-primary">Fecha de Traslado</label>
+                                    <div class="p-2 bg-white rounded border">
+                                        <span id="visualFechaTraslado" class="text-dark">-</span>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label fw-semibold text-primary">Servicio que envía</label>
+                                    <div class="p-2 bg-white rounded border">
+                                        <span id="visualServicioEnvia" class="text-dark">-</span>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label fw-semibold text-primary">Servicio que refiere</label>
+                                    <div class="p-2 bg-white rounded border">
+                                        <span id="visualServicioRefiere" class="text-dark">-</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Historia del Problema -->
+                        <div class="card border-0 bg-light mb-4">
+                            <div class="card-header bg-primary text-white py-2">
+                                <h6 class="mb-0"><i class="bi bi-journal-text me-2"></i>Historia del Problema Actual</h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="p-3 bg-white rounded border" style="min-height: 100px;">
+                                    <span id="visualHistoriaProblema" class="text-dark">No se registró información</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Columna Derecha - Examen Físico -->
+                    <div class="col-md-6">
+                        <div class="card border-0 bg-light mb-4">
+                            <div class="card-header bg-warning text-dark py-2">
+                                <h6 class="mb-0"><i class="bi bi-clipboard2-check me-2"></i>Examen Físico</h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-6 mb-3">
+                                        <label class="form-label fw-semibold text-primary">Peso</label>
+                                        <div class="p-2 bg-white rounded border text-center">
+                                            <span id="visualPeso" class="text-dark fw-bold">-</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 mb-3">
+                                        <label class="form-label fw-semibold text-primary">Talla</label>
+                                        <div class="p-2 bg-white rounded border text-center">
+                                            <span id="visualTalla" class="text-dark fw-bold">-</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-6 mb-3">
+                                        <label class="form-label fw-semibold text-primary">Presión Arterial</label>
+                                        <div class="p-2 bg-white rounded border text-center">
+                                            <span id="visualPresionArterial" class="text-dark fw-bold">-</span>
+                                            <small class="text-muted"> mmHg</small>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 mb-3">
+                                        <label class="form-label fw-semibold text-primary">Pulso</label>
+                                        <div class="p-2 bg-white rounded border text-center">
+                                            <span id="visualPulso" class="text-dark fw-bold">-</span>
+                                            <small class="text-muted"> lpm</small>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-6 mb-3">
+                                        <label class="form-label fw-semibold text-primary">Frecuencia Respiratoria</label>
+                                        <div class="p-2 bg-white rounded border text-center">
+                                            <span id="visualFrecuenciaRespiratoria" class="text-dark fw-bold">-</span>
+                                            <small class="text-muted"> rpm</small>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 mb-3">
+                                        <label class="form-label fw-semibold text-primary">Tensión Arterial</label>
+                                        <div class="p-2 bg-white rounded border text-center">
+                                            <span id="visualTensionArterial" class="text-dark fw-bold">-</span>
+                                            <small class="text-muted"> mmHg</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Información Adicional -->
+                        <div class="card border-0 bg-light">
+                            <div class="card-header bg-info text-white py-2">
+                                <h6 class="mb-0"><i class="bi bi-chat-left-text me-2"></i>Información Adicional</h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="mb-3">
+                                    <label class="form-label fw-semibold text-primary">Exámenes Realizados</label>
+                                    <div class="p-2 bg-white rounded border" style="min-height: 60px;">
+                                        <span id="visualExamenesRealizados" class="text-dark">No se registraron exámenes</span>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label fw-semibold text-primary">Motivo de la Referencia</label>
+                                    <div class="p-2 bg-white rounded border" style="min-height: 60px;">
+                                        <span id="visualMotivoReferencia" class="text-dark">-</span>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label fw-semibold text-primary">Impresión Clínica</label>
+                                    <div class="p-2 bg-white rounded border" style="min-height: 60px;">
+                                        <span id="visualImpresionClinica" class="text-dark">-</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                    <i class="bi bi-x-circle me-1"></i>Cerrar
+                </button>
+                <button type="button" class="btn btn-primary" id="btnImprimirPrenatal" title="Imprimir" onclick="imprimirPrenatal()">
+                    <i class="fa-regular fa-file-pdf"></i>
+                </button>
+
+            </div>
+        </div>
+    </div>
+</div>
+</main>
+</body>
+
+
+</html><script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="script.js"></script>
+<script src="../js/script-index.js" ></script>
