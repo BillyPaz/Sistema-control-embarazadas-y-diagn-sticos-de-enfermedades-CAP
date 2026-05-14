@@ -1,9 +1,9 @@
 <?php
 class Conexion {
     private $servername = "localhost";
-    private $username = "u522243577_rot";
-    private $password = "p7FBwWG+N";
-    private $dbname = "u522243577_centroNpSalud";
+    private $username = "";
+    private $password = "+N";
+    private $dbname = "";
     private $conn;
 
     public function __construct() {
