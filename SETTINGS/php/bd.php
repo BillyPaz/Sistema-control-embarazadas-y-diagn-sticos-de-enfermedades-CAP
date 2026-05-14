@@ -2,9 +2,9 @@
 function ConexionBD(){
     $host = "localhost";
     $port = "3306";
-    $dbname = "u522243577_centroNpSalud";
-    $username = "u522243577_rot";
-    $password = "p7FBwWG+N";
+    $dbname = "";
+    $username = "";
+    $password = "+N";
 
     try {
         $conn = new PDO("mysql:host=$host;port=$port;dbname=$dbname", $username, $password);
